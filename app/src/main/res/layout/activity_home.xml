@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/mybar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mytoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mybar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:text="مرحبا بك في شبكه مشروعات البناء" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="83dp"
+        android:text="تقدم شبكة مشروعات البناء ثلاث قواعد مجانية لخدمة مشروعات البناء في جميع الدول العربية:
+قاعدة الموارد البشرية اللازمة لمشروعات البناء من مهندسين وصنايعية ومقاولين وموردين وممولين
+قاعدة موارد معرفية لأحدث الممارسات العالمية فى ادارة المشروعات ودورات تدريبية مجانية أو مخفضة فى تميز أداء المشروعات
+قاعدة تكنولوجية سحابية لادارة المعرفة والتواصل الفورى بين جميع فرق عمل المشروع من كل الجهات." />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="74dp"
+        android:text="سجل الان" />
+
+
+</RelativeLayout>

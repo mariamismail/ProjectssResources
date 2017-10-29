@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ProjectssResource</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="type_array">
+        <item>مدني</item>
+        <item>كهرباء</item>
+        <item>ميكانيكا</item>
+    </string-array>
+    <string-array name="countries_array">
+        <item>مصر</item>
+        <item>السعوديه</item>
+        <item>المغرب</item>
+        <item>الكويت</item>
+        <item>الامارات</item>
+    </string-array>
+</resources>
