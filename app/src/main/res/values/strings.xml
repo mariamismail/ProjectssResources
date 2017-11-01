@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">ProjectssResource</string>
     <string name="action_settings">Settings</string>
+    <string-array name="job_array">
+        <item>مهندس</item>
+        <item>فني</item>
+        <item>مقاول</item>
+    </string-array>
+
     <string-array name="type_array">
         <item>مدني</item>
         <item>كهرباء</item>

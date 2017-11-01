@@ -21,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         toolbar.setTitle("خدمات الشبكه");
+        setSupportActionBar(toolbar);
+
         final Activity activity= this;
         Button postJob= (Button) findViewById(R.id.button3);
         Button projectNeed= (Button) findViewById(R.id.button4);
