@@ -10,12 +10,13 @@ public class User implements Serializable {
 
 
     private String Name;
-    private String Age;
+    private String phone;
     private String country;
     private String city;
     private String job;
+
     private String experience;
-    private String field;
+    private String mail;
 
     public String getName() {
         return Name;
@@ -26,11 +27,11 @@ public class User implements Serializable {
     }
 
     public String getAge() {
-        return Age;
+        return phone;
     }
 
     public void setAge(String age) {
-        Age = age;
+        phone = age;
     }
 
     public String getCountry() {
@@ -65,22 +66,22 @@ public class User implements Serializable {
         this.experience = experience;
     }
 
-    public String getField() {
-        return field;
+    public String getMail() {
+        return mail;
     }
 
-    public void setField(String field) {
-        this.field = field;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    public User(String name, String age, String country, String city, String job, String experience, String field) {
+    public User(String name, String age, String country, String city, String job, String experience, String mail) {
 
         Name = name;
-        Age = age;
+        phone = age;
         this.country = country;
         this.city = city;
         this.job = job;
         this.experience = experience;
-        this.field = field;
+        this.mail = mail;
     }
 }

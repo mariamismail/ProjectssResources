@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("شبكه مشروعات البناء");
+        toolbar.setTitle("خدمات الشبكه");
         final Activity activity= this;
         Button postJob= (Button) findViewById(R.id.button3);
         Button projectNeed= (Button) findViewById(R.id.button4);
