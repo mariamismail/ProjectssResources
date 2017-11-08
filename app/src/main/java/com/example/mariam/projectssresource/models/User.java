@@ -13,9 +13,30 @@ public class User implements Serializable {
     private String phone;
     private String country;
     private String city;
-    private String job;
 
-    private String experience;
+
+    public User() {
+    }
+
+    public User(String name, String phone, String country, String city, String gender, String mail) {
+        Name = name;
+        this.phone = phone;
+        this.country = country;
+        this.city = city;
+        this.gender = gender;
+        this.mail = mail;
+    }
+
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     private String mail;
 
     public String getName() {
@@ -26,13 +47,14 @@ public class User implements Serializable {
         Name = name;
     }
 
-    public String getAge() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setAge(String age) {
-        phone = age;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
+
 
     public String getCountry() {
         return country;
@@ -50,21 +72,9 @@ public class User implements Serializable {
         this.city = city;
     }
 
-    public String getJob() {
-        return job;
-    }
 
-    public void setJob(String job) {
-        this.job = job;
-    }
 
-    public String getExperience() {
-        return experience;
-    }
 
-    public void setExperience(String experience) {
-        this.experience = experience;
-    }
 
     public String getMail() {
         return mail;
@@ -74,14 +84,5 @@ public class User implements Serializable {
         this.mail = mail;
     }
 
-    public User(String name, String age, String country, String city, String job, String experience, String mail) {
 
-        Name = name;
-        phone = age;
-        this.country = country;
-        this.city = city;
-        this.job = job;
-        this.experience = experience;
-        this.mail = mail;
-    }
 }

@@ -25,6 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        activity=this;
         if(mAuth.getCurrentUser() == null) {
 
             // Start sign in/sign up activity
@@ -34,8 +35,6 @@ public class HomeActivity extends AppCompatActivity {
             toolbar.setTitle("شبكه مشروعات البناء");
             setSupportActionBar(toolbar);
 
-
-            activity=this;
             Button reg= (Button) findViewById(R.id.register);
             reg.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -53,6 +52,8 @@ public class HomeActivity extends AppCompatActivity {
             String name=mAuth
                     .getCurrentUser()
                     .getDisplayName();
+            Intent intent=new Intent(activity,MainActivity.class);
+            startActivity(intent);
             if (user1 != null & name!=null) {
 
                 Toast.makeText(this,

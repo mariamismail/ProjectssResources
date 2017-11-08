@@ -30,9 +30,11 @@ import java.util.ArrayList;
  */
 
 public class JobPostActivity extends AppCompatActivity {
-    private String filed;
+    private String job;
+    private String qualification;
     private String country;
-    private Button search;
+    private Button next;
+    private Spinner qualificationSpinner;
     private Spinner jobsSpinner;
     private Spinner countriesSpinner;
     ListView listView ;
@@ -49,10 +51,10 @@ public class JobPostActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         activity=this;
         listView = (ListView) findViewById(R.id.list);
-        search=(Button) findViewById(R.id.button1);
+       next=(Button) findViewById(R.id.button1);
          jobsSpinner = (Spinner) findViewById(R.id.jobsSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.type_array, android.R.layout.simple_spinner_item);
+                R.array.job_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         jobsSpinner.setAdapter(adapter);
 
@@ -61,62 +63,71 @@ public class JobPostActivity extends AppCompatActivity {
                 R.array.countries_array, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         countriesSpinner.setAdapter(adapter2);
+
+        qualificationSpinner=(Spinner) findViewById(R.id.qualificationSpinner);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,
+                R.array.qualification_array, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        qualificationSpinner.setAdapter(adapter3);
         values=new ArrayList<>();
 
-         listAdapter = new ArrayAdapter<String>(activity,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        // listAdapter = new ArrayAdapter<String>(activity,
+               // android.R.layout.simple_list_item_1, android.R.id.text1, values);
 
-        search.setOnClickListener(new View.OnClickListener() {
+       next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listAdapter.clear();
-                filed=jobsSpinner.getSelectedItem().toString();
+                job=jobsSpinner.getSelectedItem().toString();
                 country=countriesSpinner.getSelectedItem().toString();
-
-                //add new resource
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Resources").child("Engineers").child(filed).push();
-                String name= myRef.getKey();
-                Resource resource = new Resource();
-                resource.setCountry(country);
-                resource.setResourceID(name);
-                myRef.setValue(resource);
+                qualification=qualificationSpinner.getSelectedItem().toString();
 
 
+
+//                //add new resource
+//                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference myRef = database.getReference("Resources").child("Engineers").child(filed).push();
+//                String name= myRef.getKey();
+//                Resource resource = new Resource();
+//                resource.setCountry(country);
+//                resource.setResourceID(name);
+//                myRef.setValue(resource);
 //
-//                    //search for resource
-                DatabaseReference engineersRef = database.getReference("projectsNeeds").child("Engineers").child(filed);
-
-                engineersRef.orderByChild("country").equalTo(country).addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        String name= dataSnapshot.getValue().toString();
-                        values.add(name);
-
-                        // Assign adapter to ListView
-                        listView.setAdapter(listAdapter);
-                    }
-
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+//
+////
+////                    //search for resource
+//                DatabaseReference engineersRef = database.getReference("projectsNeeds").child("Engineers").child(filed);
+//
+//                engineersRef.orderByChild("country").equalTo(country).addChildEventListener(new ChildEventListener() {
+//                    @Override
+//                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+//                        String name= dataSnapshot.getValue().toString();
+//                        values.add(name);
+//
+//                        // Assign adapter to ListView
+//                        listView.setAdapter(listAdapter);
+//                    }
+//
+//                    @Override
+//                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
 
             }
         });
