@@ -28,6 +28,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 
 import static android.app.Activity.RESULT_OK;
+import static com.example.mariam.projectssresource.utils.Utils.checkFieldsRequired;
 
 /**
  * Created by Mariam on 07/11/2017.
@@ -84,9 +85,7 @@ public class AddUserFragment extends Fragment {
                     User user=new User(name,phone,country,city,gender,mail);
 
 
-                    //TODO start here and send the string mail to the activity anyway
                     Intent intent = new Intent();
-                   // intent.putExtra("mail",mail);
                     intent.putExtra("user",user);
 
                  onActivityResult(111,122,intent);}
@@ -108,23 +107,7 @@ public class AddUserFragment extends Fragment {
 
             return rootView;
         }
-    public boolean checkFieldsRequired(ViewGroup viewGroup){
 
-        int count = viewGroup.getChildCount();
-        for (int i = 0; i < count; i++) {
-            View view = viewGroup.getChildAt(i);
-
-          if (view instanceof EditText) {
-                EditText edittext = (EditText) view;
-                if (edittext.getText().toString().trim().equals("")) {
-                    edittext.setError("Required!");
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
     public  void addNewUser(final User user, String password){
 
         mAuth.createUserWithEmailAndPassword(user.getMail(), password)

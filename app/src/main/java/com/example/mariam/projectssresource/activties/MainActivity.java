@@ -10,9 +10,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.mariam.projectssresource.R;
 import com.example.mariam.projectssresource.activties.JobPostActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,8 +36,14 @@ public class MainActivity extends AppCompatActivity {
         postJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(activity,JobPostActivity.class);
-                startActivity(intent);
+             DatabaseReference reference= FirebaseDatabase.getInstance().getReference();
+             if ( reference.child("ResourcesIds").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).getKey().isEmpty())
+                {  Intent intent=new Intent(activity,JobPostActivity.class);
+                startActivity(intent);}
+                else {  Toast.makeText(activity,
+                     "لقد قمت بالتسجيل من قبل",
+                     Toast.LENGTH_LONG)
+                     .show();}
             }
         });
         projectNeed.setOnClickListener(new View.OnClickListener() {

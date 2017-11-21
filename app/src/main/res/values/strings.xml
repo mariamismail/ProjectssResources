@@ -22,7 +22,31 @@
         <item>فني او حرفي</item>
         <item>عامل</item>
     </string-array>
-    <string-array name="type_array">
+
+
+    <string-array name="job_title">
+        <item>الادارة العليا</item>
+        <item>مدير اداري</item>
+        <item>رئيس قسم</item>
+        <item>استشاري</item>
+        <item>قائد فريق</item>
+        <item>عضو فريق او مبتدء</item>
+    </string-array>
+
+    <string-array name="otherType_array">
+        <item>محاسب</item>
+        <item>اداره اعمال</item>
+        <item>قانوني</item>
+        <item>مشتريات</item>
+        <item>الجوده</item>
+        <item>اداره تدريب</item>
+        <item>اداره موارد بشريه</item>
+        <item>اداره نظم معلومات</item>
+        <item>صيانه شبكات </item>
+    </string-array>
+
+
+    <string-array name="engType_array">
         <item>مدني</item>
         <item>كهرباء</item>
         <item>ميكانيكا</item>

@@ -1,6 +1,7 @@
 package com.example.mariam.projectssresource.activties;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,10 +38,9 @@ public class JobPostActivity extends AppCompatActivity {
     private Spinner qualificationSpinner;
     private Spinner jobsSpinner;
     private Spinner countriesSpinner;
-    ListView listView ;
-    ArrayList<String>values;
+
     Activity activity;
-    ArrayAdapter<String> listAdapter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class JobPostActivity extends AppCompatActivity {
         toolbar.setTitle("التوظيف");
         setSupportActionBar(toolbar);
         activity=this;
-        listView = (ListView) findViewById(R.id.list);
+
        next=(Button) findViewById(R.id.button1);
          jobsSpinner = (Spinner) findViewById(R.id.jobsSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -69,65 +69,26 @@ public class JobPostActivity extends AppCompatActivity {
                 R.array.qualification_array, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         qualificationSpinner.setAdapter(adapter3);
-        values=new ArrayList<>();
 
-        // listAdapter = new ArrayAdapter<String>(activity,
-               // android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+
 
        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listAdapter.clear();
+
                 job=jobsSpinner.getSelectedItem().toString();
                 country=countriesSpinner.getSelectedItem().toString();
                 qualification=qualificationSpinner.getSelectedItem().toString();
 
+                Intent intent= new Intent(activity,AddDataActivity.class);
+                intent.putExtra("job",job);
+                intent.putExtra("country",country);
+                intent.putExtra("quali",qualification);
+                startActivity(intent);
 
 
-//                //add new resource
-//                final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference myRef = database.getReference("Resources").child("Engineers").child(filed).push();
-//                String name= myRef.getKey();
-//                Resource resource = new Resource();
-//                resource.setCountry(country);
-//                resource.setResourceID(name);
-//                myRef.setValue(resource);
-//
-//
-////
-////                    //search for resource
-//                DatabaseReference engineersRef = database.getReference("projectsNeeds").child("Engineers").child(filed);
-//
-//                engineersRef.orderByChild("country").equalTo(country).addChildEventListener(new ChildEventListener() {
-//                    @Override
-//                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//                        String name= dataSnapshot.getValue().toString();
-//                        values.add(name);
-//
-//                        // Assign adapter to ListView
-//                        listView.setAdapter(listAdapter);
-//                    }
-//
-//                    @Override
-//                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//
-//                    }
-//                });
+
 
             }
         });
